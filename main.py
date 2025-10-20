@@ -10,7 +10,7 @@ import yfinance as yf
 # lower prices?
 
 # Taken from Bureau of Transportation Statistics
-df = pd.read_csv("FlightDelayStockAnalysis/Airline_Delay_Cause.csv")
+df = pd.read_csv("FlightDelayStockAnalysis/July.csv")
 
 # check for missing data and volume of missing data
 # print("Missing data before:")
@@ -47,37 +47,43 @@ df.to_sql(
 # print(carriers)
 
 # Change airline names to their tickers
-airline_to_ticker = {
-    "United Air Lines Network": "UAL",
-    "CommuteAir LLC": "UAL",
-    "GoJet Airlines LLC": "UAL",
-    "Horizon Air": "ALK",
-    "Envoy Air": "AAL",
-    "PSA Airlines Inc.": "AAL",
-    "Piedmont Airlines": "AAL",
-    "Endeavor Air Inc.": "DAL",
-    "Air Wisconsin Airlines Corp": "UAL",
-    "Hawaiian Airlines Network": "ALK",
-    "Alaska Airlines Network": "ALK",
-    "SkyWest Airlines Inc.": "SKYW",
-    "Mesa Airlines Inc.": "MESA",
-    "Frontier Airlines": "ULCC",
-    "American Airlines Network": "AAL",
-    "Delta Air Lines Network": "DAL",
-    "Southwest Airlines": "LUV",
-    "JetBlue Airways": "JBLU",
-    "Allegiant Air": "ALGT"
-}
+# airline_to_ticker = {
+#     "United Air Lines Network": "UAL",
+#     "CommuteAir LLC": "UAL",
+#     "GoJet Airlines LLC": "UAL",
+#     "Horizon Air": "ALK",
+#     "Envoy Air": "AAL",
+#     "PSA Airlines Inc.": "AAL",
+#     "Piedmont Airlines": "AAL",
+#     "Endeavor Air Inc.": "DAL",
+#     "Air Wisconsin Airlines Corp": "UAL",
+#     "Hawaiian Airlines Network": "ALK",
+#     "Alaska Airlines Network": "ALK",
+#     "SkyWest Airlines Inc.": "SKYW",
+#     "Mesa Airlines Inc.": "MESA",
+#     "Frontier Airlines": "ULCC",
+#     "American Airlines Network": "AAL",
+#     "Delta Air Lines Network": "DAL",
+#     "Southwest Airlines": "LUV",
+#     "JetBlue Airways": "JBLU",
+#     "Allegiant Air": "ALGT"
+# }
 
-# Map airlines to their respective tickers
-df['ticker'] = df['carrier_name'].map(airline_to_ticker)
+# # Map airlines to their respective tickers
+# df['ticker'] = df['carrier_name'].map(airline_to_ticker)
 
-# Remove airlines with inaccesible ticker info
-df = df.dropna(subset=['ticker'])
+# # Remove airlines with inaccesible ticker info
+# df = df.dropna(subset=['ticker'])
 
-# Download data from yahoo finance for stock data
-start_date = datetime.datetime(2024, 7, 1)
-end_date = datetime.datetime(2025, 7, 31)
-data = yf.download(list(airline_to_ticker.values()), start=start_date, end=end_date)
-print(data.head())
+# # Download data from yahoo finance for stock data
+# start_date = datetime.datetime(2024, 7, 1)
+# end_date = datetime.datetime(2025, 7, 31)
+# data = yf.download(list(airline_to_ticker.values()), start=start_date, end=end_date)
+# print(data.head())
 
+df_daily = df.groupby(['FL_DATE', 'OP_UNIQUE_CARRIER']).agg({
+    'ARR_DELAY': 'mean',
+    'CANCELLED': 'sum'
+}).reset_index()
+
+print(df_daily)
