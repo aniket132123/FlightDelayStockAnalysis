@@ -111,9 +111,3 @@ Low p-values (< 0.05) suggest that increases in flight delays may precede declin
    ```
 
 ---
-
-## Key Takeaways
-
-* Airline operational data can offer **short-term predictive insights** into financial performance.
-* Demonstrates a complete **data science workflow**: ingestion → cleaning → integration → analysis → interpretation.
-* Combines **transportation analytics** with **financial econometrics** to explore real-world market behavior.
