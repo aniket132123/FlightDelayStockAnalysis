@@ -111,3 +111,20 @@ Low p-values (< 0.05) suggest that increases in flight delays may precede declin
    ```
 
 ---
+
+### 6. Data Visualization (Tableau Dashboard)
+
+To complement the Python analysis, an interactive Tableau dashboard was created to visualize the key findings.
+
+**Dashboard Components:**
+
+Sheet 1: Average Flight Delay per Airline
+
+Sheet 2: Stock Returns Comparison
+
+Sheet 3: Correlation Between Mean Delay and Stock Performance (dual-axis bar chart)
+
+These visualizations make it easy to identify which airlines maintain consistent operational efficiency and whether that aligns with their stock performance.
+
+**View the Dashboard:**
+[View on Tableau Public]([https://public.tableau.com/views/FlightDelaysandStockReturns/Dashboard1](https://public.tableau.com/app/profile/aniket.singh2267/viz/FlightDelayStockReturnAnalysis/Dashboard1?publish=yes&showOnboarding=true))
