@@ -127,4 +127,4 @@ Sheet 3: Correlation Between Mean Delay and Stock Performance (dual-axis bar cha
 These visualizations make it easy to identify which airlines maintain consistent operational efficiency and whether that aligns with their stock performance.
 
 **View the Dashboard:**
-[View on Tableau Public]([https://public.tableau.com/views/FlightDelaysandStockReturns/Dashboard1](https://public.tableau.com/app/profile/aniket.singh2267/viz/FlightDelayStockReturnAnalysis/Dashboard1?publish=yes&showOnboarding=true))
+[View on Tableau Public](https://public.tableau.com/app/profile/aniket.singh2267/viz/FlightDelayStockReturnAnalysis/Dashboard1?publish=yes&showOnboarding=true)
